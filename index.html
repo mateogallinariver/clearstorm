@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b12">
+  <meta name="description" content="CLEARSTORM: campera impermeable transparente, moda urbana y protección para los días de lluvia.">
+  <title>CLEARSTORM — La lluvia no te detiene</title>
+  <style>
+    :root { --bg:#070b12; --panel:#101925; --cyan:#5bd8ff; --white:#f5f8fc; --muted:#a9b6c6; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--white); background:radial-gradient(ellipse at 80% 0%,#102a3d 0,transparent 38%),var(--bg); font-family:Arial,Helvetica,sans-serif; line-height:1.5; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1100px,92%); margin:auto; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:22px 0; border-bottom:1px solid #203041; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:1.4px; font-size:1.2rem; }
+    .mountain { width:38px; height:29px; color:var(--cyan); }
+    nav { display:flex; gap:22px; color:var(--muted); font-size:.9rem; }
+    nav a:hover { color:var(--cyan); }
+    .hero { display:grid; grid-template-columns:1.02fr .98fr; gap:38px; align-items:center; padding:62px 0 54px; }
+    .eyebrow { color:var(--cyan); text-transform:uppercase; letter-spacing:3px; font-size:.76rem; font-weight:800; }
+    h1 { font-size:clamp(2.8rem,6vw,5.4rem); line-height:.94; letter-spacing:-3px; margin:16px 0 22px; }
+    h1 span { color:var(--cyan); }
+    .lead { color:var(--muted); font-size:1.08rem; max-width:510px; }
+    .price-row { display:flex; align-items:center; gap:16px; margin:28px 0; }
+    .price { font-size:2rem; font-weight:900; }
+    .tag { border:1px solid #315268; color:var(--cyan); border-radius:99px; padding:6px 11px; font-size:.78rem; }
+    .btn { display:inline-flex; justify-content:center; align-items:center; gap:8px; padding:14px 22px; border-radius:8px; background:var(--cyan); color:#041019; font-weight:900; border:0; cursor:pointer; transition:transform .2s,filter .2s; }
+    .btn:hover { transform:translateY(-2px); filter:brightness(1.08); }
+    .btn.secondary { color:var(--white); background:transparent; border:1px solid #34485b; margin-left:8px; }
+    .visual { min-height:430px; position:relative; overflow:hidden; border:1px solid #25394b; border-radius:20px; background:linear-gradient(145deg,#152b3b,#080d15 70%); display:grid; place-items:center; }
+    .visual::before { content:""; position:absolute; inset:0; opacity:.35; background:repeating-linear-gradient(105deg,transparent 0 20px,#8bdfff 21px 22px,transparent 23px 42px); }
+    .glow { position:absolute; width:240px;height:240px;border-radius:50%;background:#3acbff;filter:blur(90px);opacity:.18; }
+    .jacket { position:relative; width:76%; max-width:360px; filter:drop-shadow(0 20px 28px #000b); }
+    .visual-label { position:absolute; left:20px; bottom:18px; color:#d5e8f2; font-size:.75rem; letter-spacing:2px; }
+    section { padding:42px 0; }
+    .section-title { font-size:clamp(1.8rem,4vw,2.7rem); margin:0 0 8px; letter-spacing:-1px; }
+    .section-sub { color:var(--muted); margin:0 0 24px; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .card { padding:22px; border-radius:14px; border:1px solid #223447; background:linear-gradient(150deg,#111c29,#0b111a); }
+    .icon { font-size:1.6rem; }
+    .card h3 { margin:12px 0 6px; }
+    .card p { color:var(--muted); font-size:.94rem; margin:0; }
+    .colors { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+    .color-option { display:flex; align-items:center; gap:10px; padding:10px 14px; background:#101925; border:1px solid #293b4d; border-radius:10px; color:#eaf3fa; }
+    .swatch { width:22px;height:22px;border-radius:50%;border:1px solid #7e929f; }
+    .clear { background:linear-gradient(135deg,#dffaff99,#8cc8e533); }
+    .black { background:#111820; }
+    .red { background:#e83e4d; }
+    .blue { background:#258bd5; }
+    .packaging { display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:center; }
+    .pack { border:1px solid #273b4e; background:#0d1520; border-radius:16px; padding:26px; text-align:center; }
+    .pouch { margin:8px auto 18px; width:160px; height:190px; border:2px solid #a8d5e8; border-radius:12px 12px 20px 20px; background:linear-gradient(135deg,#c6f5ff2b,#ffffff08); box-shadow:inset 0 0 25px #82dfff14; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; }
+    .pouch strong { letter-spacing:2px; }
+    .small { color:var(--muted); font-size:.86rem; }
+    .cta { margin:42px 0; padding:34px; border-radius:18px; background:linear-gradient(110deg,#0e2a3a,#111a26); border:1px solid #28516a; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    footer { border-top:1px solid #203041; padding:24px 0 32px; color:var(--muted); font-size:.83rem; display:flex; justify-content:space-between; gap:15px; }
+    @media(max-width:760px) { nav { gap:12px; font-size:.8rem; } .hero,.packaging { grid-template-columns:1fr; } .hero { padding-top:42px; } .visual { min-height:350px; } .features { grid-template-columns:1fr; } .cta { align-items:flex-start; flex-direction:column; } h1 { letter-spacing:-2px; } }
+    @media(max-width:430px) { header { align-items:flex-start; flex-direction:column; gap:14px; } nav { flex-wrap:wrap; } .btn.secondary { margin:10px 0 0; } .price-row { flex-wrap:wrap; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="#inicio" aria-label="CLEARSTORM inicio">
+      <svg class="mountain" viewBox="0 0 64 48" fill="none" aria-hidden="true"><path d="M3 43 25 13 32 22 43 4 61 43 39 28 31 35 24 28Z" fill="currentColor"/></svg>
+      <span>CLEARSTORM</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#producto">Producto</a><a href="#colores">Colores</a><a href="#packaging">Packaging</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="inicio">
+      <div>
+        <div class="eyebrow">Moda urbana · Protección real</div>
+        <h1>LA LLUVIA<br>NO TE <span>DETIENE.</span></h1>
+        <p class="lead">Una campera transparente para que la lluvia no tape tu estilo. Diseño urbano, liviano y fácil de llevar.</p>
+        <div class="price-row"><div class="price">$15.000 <small style="font-size:.95rem">ARS</small></div><span class="tag">Precio de muestra</span></div>
+        <a class="btn" href="#consulta">QUIERO LA MÍA ↗</a>
+        <a class="btn secondary" href="#producto">Ver detalles</a>
+      </div>
+      <div class="visual" aria-label="Ilustración de una campera transparente">
+        <div class="glow"></div>
+        <svg class="jacket" viewBox="0 0 360 410" role="img" aria-label="Ilustración de campera impermeable transparente">
+          <defs><linearGradient id="plastic" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9fbff" stop-opacity=".72"/><stop offset=".48" stop-color="#8bdfff" stop-opacity=".16"/><stop offset="1" stop-color="#e9fbff" stop-opacity=".48"/></linearGradient></defs>
+          <path d="M126 74 Q130 30 180 26 Q230 30 234 74 L269 94 L326 157 L290 194 L257 162 L251 365 Q180 387 109 365 L103 162 L70 194 L34 157 L91 94 Z" fill="url(#plastic)" stroke="#c9f4ff" stroke-width="3"/>
+          <path d="M126 74 L147 107 L180 83 L213 107 L234 74 M147 107 L109 365 M213 107 L251 365" fill="none" stroke="#dffaff" stroke-width="2" opacity=".9"/>
+          <path d="M180 84 L180 373" stroke="#eafaff" stroke-width="4"/>
+          <path d="M143 119 L171 139 L159 181 L128 164 Z M217 119 L189 139 L201 181 L232 164 Z" fill="#e7fbff" fill-opacity=".12" stroke="#d4f6ff" stroke-width="1.5"/>
+          <path d="M126 74 Q128 45 153 35 L180 83 L207 35 Q232 45 234 74 L213 107 L180 83 L147 107 Z" fill="#d8f6ff" fill-opacity=".25" stroke="#d8f6ff" stroke-width="2"/>
+          <path d="M98 100 L54 155 M262 100 L306 155" stroke="#ffffff" stroke-opacity=".65" stroke-width="3"/>
+          <path d="M115 217 L151 230 M245 217 L209 230" stroke="#e8fbff" stroke-width="2"/>
+          <g fill="#83e1ff" opacity=".9"><circle cx="75" cy="76" r="3"/><circle cx="284" cy="62" r="3"/><circle cx="302" cy="260" r="2"/><circle cx="55" cy="282" r="2"/><circle cx="267" cy="324" r="3"/></g>
+        </svg>
+        <div class="visual-label">TRANSPARENTE. URBANA. VERSÁTIL.</div>
+      </div>
+    </section>
+
+    <section class="wrap" id="producto">
+      <h2 class="section-title">Hecha para los días impredecibles.</h2>
+      <p class="section-sub">Práctica para salir, cómoda para llevar y fácil de combinar.</p>
+      <div class="features">
+        <article class="card"><div class="icon">💧</div><h3>Protección contra la lluvia</h3><p>Material impermeable pensado para ayudarte a mantenerte seco. La protección depende de la calidad y el sellado del producto final.</p></article>
+        <article class="card"><div class="icon">🪶</div><h3>Liviana y portátil</h3><p>Se puede plegar y guardar en una bolsa reutilizable para llevarla en la mochila.</p></article>
+        <article class="card"><div class="icon">👟</div><h3>Tu estilo a la vista</h3><p>El diseño transparente deja ver la ropa que llevás debajo y combina con distintos conjuntos.</p></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="colores">
+      <h2 class="section-title">Elegí tu versión.</h2>
+      <p class="section-sub">Colores propuestos para la campera y sus detalles.</p>
+      <div class="colors">
+        <div class="color-option"><span class="swatch clear"></span> Transparente clásico</div>
+        <div class="color-option"><span class="swatch black"></span> Detalles negros</div>
+        <div class="color-option"><span class="swatch red"></span> Detalles rojos</div>
+        <div class="color-option"><span class="swatch blue"></span> Detalles azules</div>
+      </div>
+    </section>
+
+    <section class="wrap packaging" id="packaging">
+      <div>
+        <div class="eyebrow">Lista para llevar</div>
+        <h2 class="section-title">Un packaging que también sirve.</h2>
+        <p class="section-sub">La propuesta incluye una bolsa reutilizable para guardar la campera, más una tarjeta con instrucciones de cuidado.</p>
+        <p>✓ Campera transparente<br>✓ Bolsa reutilizable<br>✓ Guía de cuidado</p>
+        <p class="small">Material, colores, duración y accesorios deben confirmarse con el producto real antes de venderlo.</p>
+      </div>
+      <div class="pack">
+        <div class="pouch">
+          <svg width="45" height="34" viewBox="0 0 64 48" fill="#5bd8ff"><path d="M3 43 25 13 32 22 43 4 61 43 39 28 31 35 24 28Z"/></svg>
+          <strong>CLEARSTORM</strong>
+          <span class="small">RAINWEAR</span>
+        </div>
+        <strong>GUARDÁ TU ESTILO.</strong>
+        <p class="small">Bolsa reutilizable · Diseño compacto</p>
+      </div>
+    </section>
+
+    <section class="wrap" id="consulta">
+      <div class="cta">
+        <div><div class="eyebrow">¿Listo para la lluvia?</div><h2 style="margin:8px 0">Tu mundo. Tu estilo.</h2><div class="small">Consultá disponibilidad, talles y precio final.</div></div>
+        <a class="btn" id="contactButton" href="https://wa.me/?text=Hola%20CLEARSTORM%2C%20quiero%20consultar%20por%20la%20campera%20impermeable%20transparente." target="_blank" rel="noopener">CONSULTAR POR WHATSAPP ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year"></span> CLEARSTORM · Moda urbana</span><span>La lluvia no te detiene. Tu estilo tampoco.</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
